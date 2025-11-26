@@ -1,0 +1,24 @@
+﻿<Window x:Class="p311_music_store.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:p311_music_store"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="add_new_data_btn" Content="Добавить данные" Margin="5" Click="add_new_data"></Button>
+                <Button x:Name="show_new_records_btn" Content="Посмотреть новинки" Margin="5" Click="show_new_records"></Button>
+                <Button x:Name="show_most_popular_records_btn" Content="Самые продаваемые" Margin="5" Click="show_most_popular_records"></Button>
+                <Button x:Name="show_most_popular_groups_btn" Content="Самые популярные исполнители" Margin="5" Click="show_most_popular_groups"></Button>
+                <Button x:Name="show_most_popular_genres_btn" Content="Самые популярные жанры" Margin="5" Click="show_most_popular_genres"></Button>
+            </StackPanel>
+            <DataGrid x:Name="result_table">
+                
+            </DataGrid>
+        </DockPanel>
+
+    </Grid>
+</Window>
