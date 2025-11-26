@@ -1,0 +1,23 @@
+﻿<Window x:Class="p311_music_store.AddNewDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:p311_music_store"
+        mc:Ignorable="d"
+        Title="AddNewDataWindow" Height="450" Width="500">
+    <Grid HorizontalAlignment="Center">
+        <StackPanel Width="300">
+            <TextBlock FontSize="16">Выберите что добавить:</TextBlock>
+            <ComboBox x:Name="add_new_data_combobox" SelectionChanged="add_new_data_combobox_changed">
+                <ComboBoxItem Content="Добавить группу"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить альбом"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить музыку"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить жанр"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить диск"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить покупателя"></ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
+    </Grid>
+</Window>
