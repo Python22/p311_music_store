@@ -9,14 +9,33 @@
     <Grid HorizontalAlignment="Center">
         <StackPanel Width="300">
             <TextBlock FontSize="16">Выберите что добавить:</TextBlock>
-            <ComboBox x:Name="add_new_data_combobox" SelectionChanged="add_new_data_combobox_changed">
+            <ComboBox x:Name="add_new_data_combobox" DropDownClosed="add_new_data_combobox_changed">
                 <ComboBoxItem Content="Добавить группу"></ComboBoxItem>
                 <ComboBoxItem Content="Добавить альбом"></ComboBoxItem>
                 <ComboBoxItem Content="Добавить музыку"></ComboBoxItem>
                 <ComboBoxItem Content="Добавить жанр"></ComboBoxItem>
                 <ComboBoxItem Content="Добавить диск"></ComboBoxItem>
                 <ComboBoxItem Content="Добавить покупателя"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить жанр музыке"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить новую покупку"></ComboBoxItem>
+                <ComboBoxItem Content="Добавить музыку в диск"></ComboBoxItem>
             </ComboBox>
+            <TextBlock FontSize="16" Margin="0, 20">Новые данные:</TextBlock>
+
+            <TextBlock x:Name="field_1_label" FontSize="16"></TextBlock>
+            <TextBox x:Name="field_1_input" FontSize="16"></TextBox>
+
+            <TextBlock x:Name="field_2_label" FontSize="16"></TextBlock>
+            <TextBox x:Name="field_2_input" FontSize="16"></TextBox>
+
+            <TextBlock x:Name="field_3_label" FontSize="16"></TextBlock>
+            <TextBox x:Name="field_3_input" FontSize="16"></TextBox>
+
+            <TextBlock x:Name="field_4_label" FontSize="16"></TextBlock>
+            <ComboBox x:Name="field_4_combobox"></ComboBox>
+
+            <TextBlock x:Name="field_5_label" FontSize="16"></TextBlock>
+            <ComboBox x:Name="field_5_combobox"></ComboBox>
         </StackPanel>
         
     </Grid>
