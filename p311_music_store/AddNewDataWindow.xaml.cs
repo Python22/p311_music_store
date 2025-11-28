@@ -18,9 +18,11 @@ namespace p311_music_store
     public partial class AddNewDataWindow : Window
     {
         string current_data_type;
+        DataAccess data_access;
         public AddNewDataWindow()
         {
             InitializeComponent();
+            data_access = new DataAccess("p311_music_store");
             hide_all_inputs();
         }
 
@@ -69,6 +71,7 @@ namespace p311_music_store
                 field_2_input.Visibility = Visibility.Visible;
                 field_4_label.Text = "Группа:";
                 field_4_combobox.Visibility = Visibility.Visible;
+                field_4_combobox.ItemsSource = data_access.get_group_names();
                 field_5_label.Text = "Альбом:";
                 field_5_combobox.Visibility = Visibility.Visible;
             }
@@ -121,6 +124,32 @@ namespace p311_music_store
                 field_4_combobox.Visibility = Visibility.Visible;
                 field_5_label.Text = "Диск:";
                 field_5_combobox.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ok_btn_click(object sender, EventArgs e)
+        {
+            if (current_data_type == "Добавить жанр")
+            {
+                data_access.add_genre(field_1_input.Text);
+                field_1_input.Text = "";
+            }
+            if (current_data_type == "Добавить группу")
+            {
+                data_access.add_group(field_1_input.Text, field_2_input.Text);
+                field_1_input.Text = "";
+                field_2_input.Text = "";
+            }
+            if (current_data_type == "Добавить музыку")
+            {
+                data_access.add_music(
+                    field_1_input.Text,
+                    field_2_input.Text,
+                    field_4_combobox.Text.Split(';')[0],
+                    ""
+                );
+                field_1_input.Text = "";
+                field_2_input.Text = "";
             }
         }
     }

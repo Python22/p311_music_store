@@ -20,9 +20,11 @@ namespace p311_music_store
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataAccess data_access;
         public MainWindow()
         {
             InitializeComponent();
+            data_access = new DataAccess("p311_music_store");
         }
 
         void add_new_data(object sender,  RoutedEventArgs e) 

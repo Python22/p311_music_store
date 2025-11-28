@@ -36,6 +36,8 @@
 
             <TextBlock x:Name="field_5_label" FontSize="16"></TextBlock>
             <ComboBox x:Name="field_5_combobox"></ComboBox>
+
+            <Button x:Name="ok_btn" Content="Добавить" Click="ok_btn_click"></Button>
         </StackPanel>
         
     </Grid>
