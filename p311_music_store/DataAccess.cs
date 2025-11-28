@@ -45,6 +45,28 @@ namespace p311_music_store
                 MessageBoxImage.Information
             );
         }
+        public void add_album(string publish_year, string group_id)
+        {
+            var conn = new SqlConnection(_connection_string);
+            conn.Open();
+            string query = $@"
+                INSERT INTO dbo.Albums
+                (publish_year, group_id)                
+                VALUES
+                (@publish_year, @group_id)
+            ";
+            var cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@publish_year", Convert.ToInt32(publish_year));
+            cmd.Parameters.AddWithValue("@group_id", Convert.ToInt32(group_id));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show(
+                $"Албом успешно добавлен",
+                "Ок",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+        }
 
         public void add_group(string name, string peoples)
         {
@@ -63,6 +85,30 @@ namespace p311_music_store
             conn.Close();
             MessageBox.Show(
                 $"Группа '{name}' успешна добавлена",
+                "Ок",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+        }
+        public void add_record(string name, string price, string quantity_on_store, string group_id)
+        {
+            var conn = new SqlConnection(_connection_string);
+            conn.Open();
+            string query = $@"
+                INSERT INTO dbo.Records
+                (name, quantity_on_store, price, group_id, is_on_sale)                
+                VALUES
+                (@name, @quantity_on_store, @price, @group_id, 0)
+            ";
+            var cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@quantity_on_store", Convert.ToInt32(quantity_on_store));
+            cmd.Parameters.AddWithValue("@price", Convert.ToInt32(price));
+            cmd.Parameters.AddWithValue("@group_id", Convert.ToInt32(group_id));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show(
+                $"Диск '{name}' успешно добавлен",
                 "Ок",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information

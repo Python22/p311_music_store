@@ -81,6 +81,7 @@ namespace p311_music_store
                 field_1_input.Visibility = Visibility.Visible;
                 field_4_label.Text = "Группа:";
                 field_4_combobox.Visibility = Visibility.Visible;
+                field_4_combobox.ItemsSource = data_access.get_group_names();
             }
             else if (current_data_type == "Добавить диск")
             {
@@ -92,6 +93,7 @@ namespace p311_music_store
                 field_3_input.Visibility = Visibility.Visible;
                 field_4_label.Text = "Группа:";
                 field_4_combobox.Visibility = Visibility.Visible;
+                field_4_combobox.ItemsSource = data_access.get_group_names();
             }
             else if (current_data_type == "Добавить покупателя")
             {
@@ -150,6 +152,26 @@ namespace p311_music_store
                 );
                 field_1_input.Text = "";
                 field_2_input.Text = "";
+            }
+            if (current_data_type == "Добавить альбом")
+            {
+                data_access.add_album(
+                    field_1_input.Text,
+                    field_4_combobox.Text.Split(';')[0]
+                );
+                field_1_input.Text = "";
+            }
+            if (current_data_type == "Добавить диск")
+            {
+                data_access.add_record(
+                    field_1_input.Text,
+                    field_2_input.Text,
+                    field_3_input.Text,
+                    field_4_combobox.Text.Split(';')[0]
+                );
+                field_1_input.Text = "";
+                field_2_input.Text = "";
+                field_3_input.Text = "";
             }
         }
     }
